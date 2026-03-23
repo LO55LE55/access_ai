@@ -47,7 +47,7 @@
 ---
 
 ## 🛠️ Getting Started
-
+To download the dependencies and to run this locally.
 This project consists of two parts: **The Chrome Extension** (Client) and **The Private Proxy** (Server running on Hugging Face).
 
 ### Prerequisites
