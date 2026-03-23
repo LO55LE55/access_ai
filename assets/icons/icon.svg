@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Eye outline -->
+  <path d="M3 16 C7 8.5 25 8.5 29 16 C25 23.5 7 23.5 3 16 Z"
+        stroke="url(#g)" stroke-width="1.6" fill="none" stroke-linejoin="round"/>
+
+  <!-- Iris ring -->
+  <circle cx="16" cy="16" r="4.8" stroke="url(#g)" stroke-width="1.4" fill="none"/>
+
+  <!-- Pupil -->
+  <circle cx="16" cy="16" r="2" fill="url(#g)"/>
+
+  <!-- Circuit trace: top-right -->
+  <polyline points="19.2,13 22,10 26,10"
+            stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="26" cy="10" r="1.2" fill="#06b6d4"/>
+
+  <!-- Circuit trace: bottom-right -->
+  <polyline points="19.2,19 22,22 26,22"
+            stroke="#6366f1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="26" cy="22" r="1.2" fill="#6366f1"/>
+
+  <!-- Circuit trace: left -->
+  <polyline points="11.2,16 7,16 7,12"
+            stroke="#06b6d4" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <circle cx="7" cy="12" r="1.2" fill="#06b6d4"/>
+</svg>

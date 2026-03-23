@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "AccessAI",
+  "version": "1.0",
+  "description": "AI-powered accessibility features for web browsing.",
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "sidePanel",
+    "tts",
+    "microphone",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://*.hf.space/*",
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["opendyslexic-0.92/*.otf"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content-styles.css"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "sidePanel.html"
+  },
+  "icons": {
+    "128": "assets/icons/icon128.png"
+  }
+}

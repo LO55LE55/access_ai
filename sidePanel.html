@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AccessAI Assistant</title>
+  <link rel="stylesheet" href="sidePanel.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="assets/icons/icon48.png" alt="Logo" class="logo">
+      <h1>AI Assistant</h1>
+    </header>
+
+    <main id="content">
+      <div id="welcomeScreen" class="status-msg">
+        <p>Select text or right-click an image to use AccessAI.</p>
+        <div class="simplify-controls">
+          <label for="simplifyLevel" class="control-label">Simplification Level</label>
+          <select id="simplifyLevel" class="level-select">
+            <option value="simple">🟢 Simple — explain like I'm 10</option>
+            <option value="standard" selected>🔵 Standard — everyday language</option>
+            <option value="detailed">🟡 Detailed — simplified but complete</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="loadingScreen" class="status-msg hidden">
+        <div class="spinner"></div>
+        <p>AI is thinking...</p>
+      </div>
+
+      <div id="resultScreen" class="hidden">
+        <div class="result-card">
+          <div class="card-header">
+            <span id="resultType" class="badge">Simplified</span>
+            <div class="actions">
+              <button id="readAloudBtn" title="Read Aloud">🔊 Read</button>
+              <button id="copyBtn" title="Copy to Clipboard">📋 Copy</button>
+            </div>
+          </div>
+          <div id="resultBody" class="card-body">
+            <!-- AI Output goes here -->
+          </div>
+          <div class="card-footer">
+            <span id="scoreBadge" class="score-badge">Reduced Complexity</span>
+          </div>
+        </div>
+        <button id="showOriginalBtn" class="outline-btn">Show Original</button>
+      </div>
+
+      <div id="errorScreen" class="status-msg hidden">
+        <p class="error-text">Oops! Something went wrong.</p>
+        <button id="retryBtn">Retry</button>
+      </div>
+    </main>
+  </div>
+  <script src="sidePanel.js"></script>
+</body>
+</html>

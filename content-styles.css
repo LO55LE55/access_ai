@@ -1,0 +1,177 @@
+/* AccessAI Content Styles */
+
+/* High Contrast: Black and Yellow */
+.accessai-high-contrast, .accessai-high-contrast * {
+  background-color: #000000 !important;
+  color: #ffff00 !important;
+  border-color: #ffff00 !important;
+  outline-color: #ffff00 !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.accessai-high-contrast img, .accessai-high-contrast video {
+  filter: contrast(150%) grayscale(100%) !important;
+}
+
+/* Dyslexia Font */
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('opendyslexic-0.92/OpenDyslexic-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('opendyslexic-0.92/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url('opendyslexic-0.92/OpenDyslexic-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+.accessai-dyslexia, .accessai-dyslexia * {
+  font-family: 'OpenDyslexic', sans-serif !important;
+  font-size: inherit !important;
+  letter-spacing: 0.1em !important;
+  word-spacing: 0.2em !important;
+  line-height: 1.6 !important;
+}
+
+/* Color Blindness Filters (SVG Filters would be better, but CSS filters are a good start) */
+.accessai-protanopia {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0"/></filter></svg>#f') !important;
+}
+
+.accessai-deuteranopia {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.625, 0.375, 0, 0, 0, 0.7, 0.3, 0, 0, 0, 0, 0.3, 0.7, 0, 0, 0, 0, 0, 1, 0"/></filter></svg>#f') !important;
+}
+
+.accessai-tritanopia {
+  filter: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><filter id="f"><feColorMatrix type="matrix" values="0.95, 0.05, 0, 0, 0, 0, 0.433, 0.567, 0, 0, 0, 0.475, 0.525, 0, 0, 0, 0, 0, 1, 0"/></filter></svg>#f') !important;
+}
+
+/* Reader Mode Overlay */
+#accessai-reader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 2147483647; /* Max possible z-index */
+  overflow-y: auto;
+  font-family: 'OpenDyslexic', sans-serif !important;
+  color: #1e293b;
+  padding: 40px 20px;
+}
+
+#accessai-reader-overlay .reader-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#accessai-reader-overlay .close-reader {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Form Assistant Styles */
+.accessai-input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.accessai-form-btn {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  z-index: 2147483646;
+  box-shadow: 0 2px 8px rgba(99,102,241,0.5);
+  padding: 0;
+  line-height: 1;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.accessai-form-btn:hover {
+  background: #4f46e5;
+  transform: scale(1.15);
+}
+
+/* Inline Simplify Button */
+.accessai-simplify-btn {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 10px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: -apple-system, sans-serif !important;
+  cursor: pointer;
+  vertical-align: middle;
+  box-shadow: 0 2px 6px rgba(99,102,241,0.4);
+  transition: all 0.2s;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.accessai-simplify-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 10px rgba(99,102,241,0.5);
+}
+
+.accessai-simplify-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.accessai-restore-btn {
+  background: #64748b;
+  margin-left: 4px;
+}
+
+#accessai-reader-overlay .reader-content {
+  line-height: 1.8;
+  font-size: 1.4rem;
+}
+
+#accessai-reader-overlay .reader-content h1, 
+#accessai-reader-overlay .reader-content h2, 
+#accessai-reader-overlay .reader-content h3 {
+  margin-top: 2em;
+  line-height: 1.3;
+}
+
+#accessai-reader-overlay img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px 0;
+}

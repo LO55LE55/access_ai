@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AccessAI</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+<div class="popup">
+
+  <!-- ── Header ─────────────────────────── -->
+  <header class="popup-header">
+    <div class="logo-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" class="logo-svg">
+        <defs>
+          <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#818cf8"/>
+            <stop offset="100%" stop-color="#22d3ee"/>
+          </linearGradient>
+        </defs>
+        <path d="M3 16 C7 8.5 25 8.5 29 16 C25 23.5 7 23.5 3 16 Z" stroke="url(#g)" stroke-width="1.6" fill="none"/>
+        <circle cx="16" cy="16" r="4.8" stroke="url(#g)" stroke-width="1.4" fill="none"/>
+        <circle cx="16" cy="16" r="2" fill="url(#g)"/>
+        <polyline points="19.2,13 22,10 26,10" stroke="#22d3ee" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="26" cy="10" r="1.2" fill="#22d3ee"/>
+        <polyline points="19.2,19 22,22 26,22" stroke="#818cf8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="26" cy="22" r="1.2" fill="#818cf8"/>
+        <polyline points="11.2,16 7,16 7,12" stroke="#22d3ee" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <circle cx="7" cy="12" r="1.2" fill="#22d3ee"/>
+      </svg>
+    </div>
+    <div class="brand">
+      <h1>AccessAI</h1>
+      <span class="tagline">Web accessibility, powered by AI</span>
+    </div>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle popup theme">
+      <svg id="themeIconDark" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg id="themeIconLight" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M12 18C8.686 18 6 15.314 6 12C6 8.686 8.686 6 12 6C15.314 6 18 8.686 18 12C18 15.314 15.314 18 12 18ZM11 1H13V4H11V1ZM11 20H13V23H11V20ZM3.515 4.929L4.929 3.515L7.05 5.636L5.636 7.05L3.515 4.929ZM16.95 18.364L18.364 16.95L20.485 19.071L19.071 20.485L16.95 18.364ZM19.071 3.515L20.485 4.929L18.364 7.05L16.95 5.636L19.071 3.515ZM5.636 16.95L7.05 18.364L4.929 20.485L3.515 19.071L5.636 16.95ZM23 11V13H20V11H23ZM4 11V13H1V11H4Z"/></svg>
+    </button>
+  </header>
+
+  <!-- ── Reading ────────────────────────── -->
+  <section class="group">
+    <div class="group-label">
+      <svg viewBox="0 0 16 16" fill="none" class="group-icon"><path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Reading
+    </div>
+
+    <div class="row">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><text x="2" y="15" font-size="13" fill="currentColor" font-family="Georgia,serif" font-weight="bold">A</text></svg>
+        <div class="row-text">
+          <span class="row-title">Dyslexia Font</span>
+          <span class="row-desc">OpenDyslexic typeface on all text</span>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="dyslexiaFont"><span class="slider"></span></label>
+    </div>
+
+    <div class="row-wrapper">
+      <div class="row" style="border-bottom: none; padding-bottom: 4px;">
+        <div class="row-left">
+          <svg viewBox="0 0 20 20" fill="none" class="row-icon"><path d="M4 10h12M10 4v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          <div class="row-text">
+            <span class="row-title">Font Size <span id="fontSizeDisplay" class="badge">Default</span></span>
+            <span class="row-desc">Scales all text on the page</span>
+          </div>
+        </div>
+        <button id="resetFontSize" class="chip-btn">Reset</button>
+      </div>
+      <input type="range" id="fontSizeSlider" min="8" max="72" value="16" class="range-slider">
+    </div>
+
+    <div class="row">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><path d="M10 3l1.5 4h4l-3.2 2.4 1.2 4L10 11l-3.5 2.4 1.2-4L4.5 7H8.5z" stroke="currentColor" stroke-width="1.2" fill="none"/></svg>
+        <div class="row-text">
+          <span class="row-title">Content Helpers</span>
+          <span class="row-desc">Simplify &amp; Read buttons on paragraphs</span>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="simplifyHelpers"><span class="slider"></span></label>
+    </div>
+
+    <button id="enterReaderMode" class="action-btn">
+      <svg viewBox="0 0 20 20" fill="none"><path d="M3 4h6a2 2 0 012 2v10a2 2 0 01-2-2H3V4zm14 0h-6a2 2 0 00-2 2v10a2 2 0 002-2h6V4z" stroke="currentColor" stroke-width="1.5"/></svg>
+      Open Reader Mode
+    </button>
+  </section>
+
+  <!-- ── Vision ─────────────────────────── -->
+  <section class="group">
+    <div class="group-label">
+      <svg viewBox="0 0 16 16" fill="none" class="group-icon"><path d="M1 8c2-4 12-4 14 0C13 12 3 12 1 8z" stroke="currentColor" stroke-width="1.2"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.2"/></svg>
+      Vision
+    </div>
+
+    <div class="row">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M10 3v14" stroke="currentColor" stroke-width="1.4"/><path d="M3 10h7" fill="currentColor"/><path d="M3 10h7" stroke="currentColor" stroke-width="1.4"/></svg>
+        <div class="row-text">
+          <span class="row-title">High Contrast</span>
+          <span class="row-desc">Black &amp; yellow high-contrast mode</span>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="highContrast"><span class="slider"></span></label>
+    </div>
+
+    <div class="row-select">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><circle cx="10" cy="10" r="4" fill="currentColor" opacity=".3"/><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4"/></svg>
+        <span class="row-title">Color Filter</span>
+      </div>
+      <select id="colorFilter" class="inline-select">
+        <option value="none">None</option>
+        <option value="protanopia">Protanopia</option>
+        <option value="deuteranopia">Deuteranopia</option>
+        <option value="tritanopia">Tritanopia</option>
+      </select>
+    </div>
+  </section>
+
+  <!-- ── Voice & Forms ──────────────────── -->
+  <section class="group">
+    <div class="group-label">
+      <svg viewBox="0 0 16 16" fill="none" class="group-icon"><rect x="6" y="2" width="4" height="7" rx="2" stroke="currentColor" stroke-width="1.2"/><path d="M3 9a5 5 0 0010 0M8 14v-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Voice &amp; Forms
+    </div>
+
+    <div class="row">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><rect x="8" y="2" width="4" height="9" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M4 11a6 6 0 0012 0M10 17v-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="row-text">
+          <span class="row-title">Form Assistant</span>
+          <span class="row-desc">Voice input mic on every form field</span>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="formAssistant"><span class="slider"></span></label>
+    </div>
+
+    <div id="micPermissionWarning" class="alert-row hidden">
+      <svg viewBox="0 0 16 16" fill="none"><path d="M8 2l6 12H2L8 2z" stroke="#d97706" stroke-width="1.2"/><path d="M8 7v3M8 11.5v.5" stroke="#d97706" stroke-linecap="round"/></svg>
+      <span>Microphone permission required</span>
+      <button id="grantMicPermission" class="chip-btn">Enable</button>
+    </div>
+
+    <div class="row">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><path d="M4 10a6 6 0 006 6v0a6 6 0 006-6M10 14v2M7 18h6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M7 6.5C7 5.1 8.1 4 9.5 4h1C11.9 4 13 5.1 13 6.5v3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <div class="row-text">
+          <span class="row-title">Voice Feedback</span>
+          <span class="row-desc">Announce setting changes via TTS</span>
+        </div>
+      </div>
+      <label class="switch"><input type="checkbox" id="voiceFeedback"><span class="slider"></span></label>
+    </div>
+  </section>
+
+  <!-- ── AI Settings ────────────────────── -->
+  <section class="group">
+    <div class="group-label">
+      <svg viewBox="0 0 16 16" fill="none" class="group-icon"><rect x="2" y="2" width="12" height="12" rx="3" stroke="currentColor" stroke-width="1.2"/><path d="M6 8h4M8 6v4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+      AI Settings
+    </div>
+
+    <div class="row-select">
+      <div class="row-left">
+        <svg viewBox="0 0 20 20" fill="none" class="row-icon"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.4"/><path d="M7 9c0-1.7 1.3-3 3-3s3 1.3 3 3-1.3 2-3 2v2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><circle cx="10" cy="15" r=".8" fill="currentColor"/></svg>
+        <span class="row-title">Simplification Level</span>
+      </div>
+      <select id="simplifyLevel" class="inline-select">
+        <option value="simple">Simple</option>
+        <option value="standard" selected>Standard</option>
+        <option value="detailed">Detailed</option>
+      </select>
+    </div>
+  </section>
+
+</div>
+<script src="popup.js"></script>
+</body>
+</html>
